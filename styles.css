@@ -1,0 +1,8 @@
+#block-site-news .forumpost img.userpicture {
+	width: auto; /* override */
+	height: auto; /* override */
+}
+
+#block-site-news .forumpost .header {
+	width: auto; /* override */
+}
