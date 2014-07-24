@@ -35,6 +35,6 @@ function block_sitenews_get_itemsnumber() {
  * @param int $value
  */
 function block_sitenews_update_itemsnumber($value) {
-	$value = (int) $value;
+	$value = clean_param($value, PARAM_INT);
 	set_user_preference('sitenews_itemsnumber', $value);
 }

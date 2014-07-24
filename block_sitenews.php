@@ -84,9 +84,7 @@ class block_sitenews extends block_base {
 		if ($this->page->user_is_editing())
 			$this->content->text .= $renderer->editing_bar_head($items);
 
-		if ($items == 0 || forum_get_discussions_count($newsforumcm) == 0) // admin disabled news or just nothing to display
-			$this->content->text .= $renderer->nothing_to_display_message();
-		else
+		if ($items > 0 && forum_get_discussions_count($newsforumcm)) // admin disabled news or just nothing to display
 			$this->content->text .= $renderer->sitenews($newsforum, $items);
 
 		return $this->content;
