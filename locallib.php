@@ -26,7 +26,7 @@
  * @return number
  */
 function block_sitenews_get_itemsnumber() {
-	return intval(get_user_preferences('sitenews_itemsnumber', 1));
+	return intval(get_user_preferences('sitenews_itemsnumber', 0));
 }
 
 /**

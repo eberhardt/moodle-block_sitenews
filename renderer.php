@@ -51,7 +51,7 @@ class block_sitenews_renderer extends plugin_renderer_base {
 	 * @param number $items Number of news items to display
 	 * @return string
 	 */
-	public function editing_bar_head($selected = 1) {
+	public function editing_bar_head($selected = 0) {
 		$output = $this->output->box_start('notice');
 
 		$url = new moodle_url('/my/index.php');
