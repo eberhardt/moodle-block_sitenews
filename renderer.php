@@ -52,25 +52,16 @@ class block_sitenews_renderer extends plugin_renderer_base {
 	 * @return string
 	 */
 	public function editing_bar_head($selected = 0) {
-		$output = $this->output->box_start('notice');
+		$output = $this->output->box_start("notice");
 
-		$url = new moodle_url('/my/index.php');
+		$url = new moodle_url("/my/index.php");
 		$options = range(0,10);
 		$options[0] = get_string("preset", "block_sitenews");
-		$select = new single_select($url, 'mynewsitems', $options, $selected, array());
-		$select->set_label(get_string("newsitemsnumber"));
+		$select = new single_select($url, "mynewsitems", $options, $selected, array());
+		$select->set_label(get_string("newsitemsnumber") . ":");
 		$output .= $this->output->render($select);
 
 		$output .= $this->output->box_end();
 		return $output;
-	}
-
-	/**
-	 * Prints a nothing-to-display-message
-	 *
-	 * @return string
-	 */
-	public function nothing_to_display_message() {
-		return html_writer::div(get_string("nothingtodisplay"), "notify");
 	}
 }

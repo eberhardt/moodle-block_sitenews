@@ -46,7 +46,7 @@ class block_sitenews extends block_base {
 	}
 
 	public function applicable_formats() {
-		return array('site' => true, 'my-index' => true);
+		return array("site-index" => true, "my-index" => true);
 	}
 
 	/**
@@ -64,13 +64,14 @@ class block_sitenews extends block_base {
 		$newsforumcm = get_coursemodule_from_instance('forum', $newsforum->id, $SITE->id, false, MUST_EXIST);
 
 		$updatemynumber = optional_param("mynewsitems", -1, PARAM_INT);
+		$displaysetting = block_sitenews_get_itemsnumber();
 		if ($updatemynumber >= 0 && $updatemynumber < 11)
 		{
 			block_sitenews_update_itemsnumber($updatemynumber);
 			$items = $updatemynumber;
 		}
 		else
-			$items = block_sitenews_get_itemsnumber();
+			$items = $displaysetting;
 
 		if ($items == 0) // setting is "preset"
 			$items = $SITE->newsitems;
@@ -82,7 +83,7 @@ class block_sitenews extends block_base {
 		$renderer = $this->page->get_renderer("block_sitenews");
 
 		if ($this->page->user_is_editing())
-			$this->content->text .= $renderer->editing_bar_head($items);
+			$this->content->text .= $renderer->editing_bar_head($displaysetting);
 
 		if ($items > 0 && forum_get_discussions_count($newsforumcm)) // admin disabled news or just nothing to display
 			$this->content->text .= $renderer->sitenews($newsforum, $items);
