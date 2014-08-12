@@ -68,7 +68,7 @@ class block_sitenews extends block_base {
 		if ($updatemynumber >= 0 && $updatemynumber < 11)
 		{
 			block_sitenews_update_itemsnumber($updatemynumber);
-			$items = $updatemynumber;
+			$displaysetting = $items = $updatemynumber;
 		}
 		else
 			$items = $displaysetting;
