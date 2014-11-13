@@ -41,4 +41,3 @@ class block_sitenews_edit_form extends block_edit_form {
 
 }
 
-?>

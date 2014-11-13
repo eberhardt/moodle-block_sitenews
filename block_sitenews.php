@@ -73,7 +73,7 @@ class block_sitenews extends block_base {
 		else
 			$items = $displaysetting;
 
-		if ($items == 0) // setting is "preset"
+		if ($items == 0) // Setting is "preset".
 			$items = $SITE->newsitems;
 
 		$this->content = new stdClass();
@@ -85,7 +85,7 @@ class block_sitenews extends block_base {
 		if ($this->page->user_is_editing())
 			$this->content->text .= $renderer->editing_bar_head($displaysetting);
 
-		if ($items > 0 && forum_get_discussions_count($newsforumcm)) // admin disabled news or just nothing to display
+		if ($items > 0 && forum_get_discussions_count($newsforumcm)) // Admin disabled news or just nothing to display.
 			$this->content->text .= $renderer->sitenews($newsforum, $items);
 
 		return $this->content;
@@ -93,4 +93,3 @@ class block_sitenews extends block_base {
 
 }
 
-?>
