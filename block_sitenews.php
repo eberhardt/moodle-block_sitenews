@@ -20,7 +20,8 @@
  * @author     Jan Eberhardt <eberhardt@math.tu-berlin.de>
  */
 
-require_once($CFG->dirroot.'/blocks/sitenews/locallib.php');
+require_once(__DIR__ . "/locallib.php");
+require_once($CFG->dirroot . "/mod/forum/lib.php");
 
 class block_sitenews extends block_base {
 
