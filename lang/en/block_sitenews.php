@@ -25,3 +25,4 @@ $string["sitenews:addinstance"] = 'Add block "sitenews" to course.';
 $string["sitenews:myaddinstance"] = 'Add block "sitenews" to my startpage';
 
 $string["preset"] = 'Preset';
+$string["obsoleteinstancesdeleted"] = 'Obselete instances have been deleted.';
