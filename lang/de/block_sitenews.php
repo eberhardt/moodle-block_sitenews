@@ -25,4 +25,4 @@ $string["sitenews:addinstance"] = 'Block "Nachrichten der Website" im Kurs verwe
 $string["sitenews:myaddinstance"] = 'Block "Nachrichten der Website" in Meiner Startseite verwenden';
 
 $string["preset"] = 'Vorgabe';
-$string["obsoleteinstancesdeleted"] = 'Veraltete Instanzen wurden ge&ouml;scht.';
+$string["obsoleteinstancesdeleted"] = 'Veraltete Instanzen wurden gel&ouml;scht.';
