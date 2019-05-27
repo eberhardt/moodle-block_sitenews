@@ -23,6 +23,7 @@
 $string["pluginname"] = "Site news";
 $string["sitenews:addinstance"] = 'Add block "sitenews" to course.';
 $string["sitenews:myaddinstance"] = 'Add block "sitenews" to my startpage';
+$string["privacy:preference:itemsnumber"] = 'Number of announcements to show.';
 
 $string["preset"] = 'Preset';
 $string["obsoleteinstancesdeleted"] = 'Obselete instances have been deleted.';

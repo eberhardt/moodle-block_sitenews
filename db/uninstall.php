@@ -17,13 +17,16 @@
 /**
  * @package    block_sitenews
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v4 or later
- * @author     Jan Eberhardt <eberhardt@math.tu-berlin.de>
+ * @copyright  2019 innoCampus, TU Berlin
  */
 
-$string["pluginname"] = 'Nachrichten der Website';
-$string["sitenews:addinstance"] = 'Block "Nachrichten der Website" im Kurs verwenden';
-$string["sitenews:myaddinstance"] = 'Block "Nachrichten der Website" in Meiner Startseite verwenden';
-$string["privacy:preference:itemsnumber"] = 'Anzahl der Nachrichten, die angezeigt werden sollen.';
+defined("MOODLE_INTERNAL") || die();
 
-$string["preset"] = 'Vorgabe';
-$string["obsoleteinstancesdeleted"] = 'Veraltete Instanzen wurden gel&ouml;scht.';
+function xmldb_block_sitenews_uninstall() {
+    global $DB;
+
+    // The block instances should be deleted by Moodle automatically. However, we need to delete the user preferences.
+    $DB->delete_records('user_preferences', ['name' => 'sitenews_itemsnumber']);
+
+    return true;
+}
