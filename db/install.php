@@ -39,6 +39,9 @@ function xmldb_block_sitenews_install()
     $blockinstance->defaultregion = "content";
     $blockinstance->defaultweight = -1;
     $blockinstance->configdata = '';
+    $blockinstance->requiredbytheme = 0;
+    $blockinstance->timemodified = time();
+    $blockinstance->timecreated = time();
     $blockinstance->id = $DB->insert_record('block_instances', $blockinstance);
 
     // Ensure the block context is created.
