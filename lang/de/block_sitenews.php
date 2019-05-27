@@ -23,6 +23,7 @@
 $string["pluginname"] = 'Nachrichten der Website';
 $string["sitenews:addinstance"] = 'Block "Nachrichten der Website" im Kurs verwenden';
 $string["sitenews:myaddinstance"] = 'Block "Nachrichten der Website" in Meiner Startseite verwenden';
+$string["privacy:preference:itemsnumber"] = 'Anzahl der Nachrichten, die angezeigt werden sollen.';
 
 $string["preset"] = 'Vorgabe';
 $string["obsoleteinstancesdeleted"] = 'Veraltete Instanzen wurden gel&ouml;scht.';
