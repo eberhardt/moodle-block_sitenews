@@ -43,4 +43,6 @@ function xmldb_block_sitenews_upgrade($oldversion = 0)
 
 		upgrade_plugin_savepoint(true, 2014072201, "block", "sitenews");
 	}
+
+	return true;
 }
