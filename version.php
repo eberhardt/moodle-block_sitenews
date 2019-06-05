@@ -22,7 +22,7 @@
 
 $plugin->component = "block_sitenews";
 $plugin->requires  = 2014051200;
-$plugin->version   = 2019052700;
+$plugin->version   = 2019052701;
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = "1.02";
+$plugin->release   = "1.03";
 
