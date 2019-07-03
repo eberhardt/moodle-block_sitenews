@@ -1,7 +1,7 @@
 moodle-block_sitenews
 =====================
 
-Display site news in full scale at my startpage.
+Display site news in full scale at the Dashboard.
 
 Also available in the [Moodle plugins directory](https://moodle.org/plugins/view.php?plugin=block_sitenews).
 
