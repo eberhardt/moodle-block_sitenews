@@ -31,18 +31,22 @@ class block_sitenews_renderer extends plugin_renderer_base {
      * @return string
      */
     public function sitenews(stdClass $newsforum, $items) {
-        global $SITE;
+        global $SITE, $USER;
 
-        $output = html_writer::start_div("", array("id" => "block-site-news")); // start div for styling
+        $coursemodule = get_coursemodule_from_instance('forum', $newsforum->id);
+        $context = context_module::instance($coursemodule->id);
 
-        ob_start();
-        forum_print_latest_discussions($SITE, $newsforum, $items, 'plain', 'p.modified DESC');
-        $output .= ob_get_contents(); // there is no option for returning it as string... so grep the output via ob
-        ob_end_clean();
+        $entityfactory = mod_forum\local\container::get_entity_factory();
+        $forumentity = $entityfactory->get_forum_from_stdclass($newsforum, $context, $coursemodule, $SITE);
 
-        $output .= html_writer::end_div();
+        $rendererfactory = mod_forum\local\container::get_renderer_factory();
+        $discussionsrenderer = $rendererfactory->get_frontpage_news_discussion_list_renderer($forumentity);
+        $cm = \cm_info::create($coursemodule);
 
-        return $output;
+        $content = $discussionsrenderer->render($USER, $cm, null, null, 0, $items);
+        $content = html_writer::tag('div', $content, ['id' => 'site-news-forum']);
+
+        return $content;
     }
 
     /**
