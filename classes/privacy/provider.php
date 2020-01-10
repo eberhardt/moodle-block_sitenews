@@ -61,7 +61,7 @@ class provider implements
         $preference = get_user_preferences('sitenews_itemsnumber', null, $userid);
         if ($preference !== null) {
             $desc = get_string('privacy:preference:itemsnumber', 'block_sitenews');
-            writer::export_user_preference('block_sitenews', 'htmleditor', $preference, $desc);
+            writer::export_user_preference('block_sitenews', 'itemsnumber', $preference, $desc);
         }
     }
 }
