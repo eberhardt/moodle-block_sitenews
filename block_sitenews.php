@@ -30,8 +30,7 @@ class block_sitenews extends block_base {
     /**
      * Initialization
      */
-    public function init()
-    {
+    public function init() {
         $this->title = get_string("pluginname", "block_sitenews");
     }
 
@@ -55,8 +54,7 @@ class block_sitenews extends block_base {
      *
      * @see block_base::get_content()
      */
-    public function get_content()
-    {
+    public function get_content() {
         global $SITE;
 
         if (! $newsforum = forum_get_course_forum($SITE->id, "news")) {
@@ -66,16 +64,18 @@ class block_sitenews extends block_base {
 
         $updatemynumber = optional_param("mynewsitems", -1, PARAM_INT);
         $displaysetting = block_sitenews_get_itemsnumber();
-        if ($updatemynumber >= 0 && $updatemynumber < 11)
-        {
+        if ($updatemynumber >= 0 && $updatemynumber < 11) {
             block_sitenews_update_itemsnumber($updatemynumber);
             $displaysetting = $items = $updatemynumber;
         }
-        else
+        else {
             $items = $displaysetting;
+        }
 
-        if ($items == 0) // Setting is "preset".
+        if ($items == 0) {
+            // Setting is "preset".
             $items = $SITE->newsitems;
+        }
 
         $this->content = new stdClass();
         $this->content->text = "";
@@ -83,11 +83,14 @@ class block_sitenews extends block_base {
 
         $renderer = $this->page->get_renderer("block_sitenews");
 
-        if ($this->page->user_is_editing())
+        if ($this->page->user_is_editing()) {
             $this->content->text .= $renderer->editing_bar_head($displaysetting);
+        }
 
-        if ($items > 0 && forum_get_discussions_count($newsforumcm)) // Admin disabled news or just nothing to display.
+        if ($items > 0 && forum_get_discussions_count($newsforumcm)) {
+            // Admin disabled news or just nothing to display.
             $this->content->text .= $renderer->sitenews($newsforum, $items);
+        }
 
         return $this->content;
     }

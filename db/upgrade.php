@@ -26,13 +26,12 @@ function xmldb_block_sitenews_upgrade($oldversion = 0)
 {
     global $DB, $OUTPUT;
 
-    if ($oldversion < 2014072201)
-    {
-        if ($blockinstances = $DB->get_records("block_instances", array("blockname" => "sitenews")))
-        {
+    if ($oldversion < 2014072201) {
+        if ($blockinstances = $DB->get_records("block_instances", array("blockname" => "sitenews"))) {
             // Remove all instances of the block.
-            foreach ($blockinstances as $instance)
+            foreach ($blockinstances as $instance) {
                 blocks_delete_instance($instance);
+            }
             echo $OUTPUT->notification(get_string("obsoleteinstancesdeleted", "block_sitenews"), "notifysuccess");
         }
 
