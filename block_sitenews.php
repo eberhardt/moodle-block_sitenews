@@ -21,7 +21,6 @@
  */
 
 require_once(__DIR__ . "/locallib.php");
-require_once($CFG->dirroot . "/mod/forum/lib.php");
 
 class block_sitenews extends block_base {
 
@@ -60,7 +59,6 @@ class block_sitenews extends block_base {
         if (! $newsforum = forum_get_course_forum($SITE->id, "news")) {
             print_error("cannotfindorcreateforum", "forum");
         }
-        $newsforumcm = get_coursemodule_from_instance('forum', $newsforum->id, $SITE->id, false, MUST_EXIST);
 
         $updatemynumber = optional_param("mynewsitems", -1, PARAM_INT);
         $displaysetting = block_sitenews_get_itemsnumber();
@@ -87,8 +85,7 @@ class block_sitenews extends block_base {
             $this->content->text .= $renderer->editing_bar_head($displaysetting);
         }
 
-        if ($items > 0 && forum_get_discussions_count($newsforumcm)) {
-            // Admin disabled news or just nothing to display.
+        if ($items > 0) {
             $this->content->text .= $renderer->sitenews($newsforum, $items);
         }
 
