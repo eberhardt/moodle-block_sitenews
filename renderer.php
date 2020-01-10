@@ -24,44 +24,44 @@ require_once($CFG->dirroot.'/blocks/sitenews/locallib.php');
 
 class block_sitenews_renderer extends plugin_renderer_base {
 
-	/**
-	 * Prints the site news
-	 *
-	 * @param array $sitenews
-	 * @return string
-	 */
-	public function sitenews(stdClass $newsforum, $items) {
-		global $SITE;
+    /**
+     * Prints the site news
+     *
+     * @param array $sitenews
+     * @return string
+     */
+    public function sitenews(stdClass $newsforum, $items) {
+        global $SITE;
 
-		$output = html_writer::start_div("", array("id" => "block-site-news")); // start div for styling
+        $output = html_writer::start_div("", array("id" => "block-site-news")); // start div for styling
 
-		ob_start();
-		forum_print_latest_discussions($SITE, $newsforum, $items, 'plain', 'p.modified DESC');
-		$output .= ob_get_contents(); // there is no option for returning it as string... so grep the output via ob
-		ob_end_clean();
+        ob_start();
+        forum_print_latest_discussions($SITE, $newsforum, $items, 'plain', 'p.modified DESC');
+        $output .= ob_get_contents(); // there is no option for returning it as string... so grep the output via ob
+        ob_end_clean();
 
-		$output .= html_writer::end_div();
+        $output .= html_writer::end_div();
 
-		return $output;
-	}
+        return $output;
+    }
 
-	/**
-	 * Prints the editing header
-	 *
-	 * @param number $items Number of news items to display
-	 * @return string
-	 */
-	public function editing_bar_head($selected = 0) {
-		$output = $this->output->box_start("notice");
+    /**
+     * Prints the editing header
+     *
+     * @param number $items Number of news items to display
+     * @return string
+     */
+    public function editing_bar_head($selected = 0) {
+        $output = $this->output->box_start("notice");
 
-		$url = new moodle_url("/my/index.php");
-		$options = range(0,10);
-		$options[0] = get_string("preset", "block_sitenews");
-		$select = new single_select($url, "mynewsitems", $options, $selected, array());
-		$select->set_label(get_string("newsitemsnumber") . ":");
-		$output .= $this->output->render($select);
+        $url = new moodle_url("/my/index.php");
+        $options = range(0,10);
+        $options[0] = get_string("preset", "block_sitenews");
+        $select = new single_select($url, "mynewsitems", $options, $selected, array());
+        $select->set_label(get_string("newsitemsnumber") . ":");
+        $output .= $this->output->render($select);
 
-		$output .= $this->output->box_end();
-		return $output;
-	}
+        $output .= $this->output->box_end();
+        return $output;
+    }
 }

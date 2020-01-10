@@ -26,7 +26,7 @@
  * @return number
  */
 function block_sitenews_get_itemsnumber() {
-	return intval(get_user_preferences('sitenews_itemsnumber', 0));
+    return intval(get_user_preferences('sitenews_itemsnumber', 0));
 }
 
 /**
@@ -35,6 +35,6 @@ function block_sitenews_get_itemsnumber() {
  * @param int $value
  */
 function block_sitenews_update_itemsnumber($value) {
-	$value = clean_param($value, PARAM_INT);
-	set_user_preference('sitenews_itemsnumber', $value);
+    $value = clean_param($value, PARAM_INT);
+    set_user_preference('sitenews_itemsnumber', $value);
 }

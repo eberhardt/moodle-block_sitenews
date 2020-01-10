@@ -24,25 +24,25 @@ defined("MOODLE_INTERNAL") || die();
 
 function xmldb_block_sitenews_upgrade($oldversion = 0)
 {
-	global $DB, $OUTPUT;
+    global $DB, $OUTPUT;
 
-	if ($oldversion < 2014072201)
-	{
-		if ($blockinstances = $DB->get_records("block_instances", array("blockname" => "sitenews")))
-		{
-			// Remove all instances of the block.
-			foreach ($blockinstances as $instance)
-				blocks_delete_instance($instance);
-			echo $OUTPUT->notification(get_string("obsoleteinstancesdeleted", "block_sitenews"), "notifysuccess");
-		}
+    if ($oldversion < 2014072201)
+    {
+        if ($blockinstances = $DB->get_records("block_instances", array("blockname" => "sitenews")))
+        {
+            // Remove all instances of the block.
+            foreach ($blockinstances as $instance)
+                blocks_delete_instance($instance);
+            echo $OUTPUT->notification(get_string("obsoleteinstancesdeleted", "block_sitenews"), "notifysuccess");
+        }
 
-		// There are no block instances of sitenews (anymore), so add the major one.
-		// Use xmldb_block_sitenews_install(), because it would be exact the same code.
-		require_once __DIR__ . "/install.php";
-		xmldb_block_sitenews_install();
+        // There are no block instances of sitenews (anymore), so add the major one.
+        // Use xmldb_block_sitenews_install(), because it would be exact the same code.
+        require_once __DIR__ . "/install.php";
+        xmldb_block_sitenews_install();
 
-		upgrade_plugin_savepoint(true, 2014072201, "block", "sitenews");
-	}
+        upgrade_plugin_savepoint(true, 2014072201, "block", "sitenews");
+    }
 
-	return true;
+    return true;
 }

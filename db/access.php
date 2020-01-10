@@ -24,23 +24,23 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
-	'block/sitenews:addinstance' => array(
+    'block/sitenews:addinstance' => array(
 
-		'captype' => 'write',
-		'contextlevel' => CONTEXT_BLOCK,
-		'archetypes' => null
-	),
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => null
+    ),
 
-	'block/sitenews:myaddinstance' => array(
+    'block/sitenews:myaddinstance' => array(
 
-		"captype" => "write",
-		"contextlevel" => CONTEXT_BLOCK,
-		"archetypes" => array(
+        "captype" => "write",
+        "contextlevel" => CONTEXT_BLOCK,
+        "archetypes" => array(
 
-			"user" => CAP_ALLOW,
-			"guest" => CAP_ALLOW
+            "user" => CAP_ALLOW,
+            "guest" => CAP_ALLOW
 
-		)
-	)
+        )
+    )
 );
 

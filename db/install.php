@@ -24,9 +24,9 @@ defined("MOODLE_INTERNAL") || die();
 
 function xmldb_block_sitenews_install()
 {
-	// The next lines are mostly copied from block_manager::add_block() in order to add the block to my-index.
-	// Since the instructions may be confusing, I decided to add the instance with the "sticky" options after the installation.
-	// Default weight has to be set, after installation (now -1).
+    // The next lines are mostly copied from block_manager::add_block() in order to add the block to my-index.
+    // Since the instructions may be confusing, I decided to add the instance with the "sticky" options after the installation.
+    // Default weight has to be set, after installation (now -1).
 
     global $DB;
 

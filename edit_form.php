@@ -22,22 +22,22 @@
 
 class block_sitenews_edit_form extends block_edit_form {
 
-	/**
-	 * Extend block configuration
-	 *
-	 * @see block_edit_form::definition()
-	 */
-	public function definition() {
-		global $DB;
+    /**
+     * Extend block configuration
+     *
+     * @see block_edit_form::definition()
+     */
+    public function definition() {
+        global $DB;
 
-		parent::definition(); // first, create the orginal form
+        parent::definition(); // first, create the orginal form
 
-		// then, alter some options
-		if (!$DB->record_exists("block_instances", array("id" => $this->block->instance->id, "defaultregion" => "content")) // default isn't "content", so it won't show up in the drop down list
-				&& $this->_form->elementExists("bui_defaultregion")) { // check, if some later releases won't crash
-			$this->_form->getElement("bui_defaultregion")->addOption("Content", "content"); // I'm aware, that it would be "content", but with capital-C it's easier to recognize
-		}
-	}
+        // then, alter some options
+        if (!$DB->record_exists("block_instances", array("id" => $this->block->instance->id, "defaultregion" => "content")) // default isn't "content", so it won't show up in the drop down list
+                && $this->_form->elementExists("bui_defaultregion")) { // check, if some later releases won't crash
+            $this->_form->getElement("bui_defaultregion")->addOption("Content", "content"); // I'm aware, that it would be "content", but with capital-C it's easier to recognize
+        }
+    }
 
 }
 
