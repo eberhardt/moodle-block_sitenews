@@ -64,7 +64,7 @@ class block_sitenews extends block_base {
 
         $updatemynumber = optional_param("mynewsitems", -1, PARAM_INT);
         $displaysetting = block_sitenews_get_itemsnumber();
-        if ($updatemynumber >= 0 && $updatemynumber < 11) {
+        if ($updatemynumber >= 0 && $updatemynumber < 11 && confirm_sesskey()) {
             block_sitenews_update_itemsnumber($updatemynumber);
             $displaysetting = $items = $updatemynumber;
         }

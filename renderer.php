@@ -58,6 +58,7 @@ class block_sitenews_renderer extends plugin_renderer_base {
         $options = range(0,10);
         $options[0] = get_string("preset", "block_sitenews");
         $select = new single_select($url, "mynewsitems", $options, $selected, array());
+        $select->method = 'post';
         $select->set_label(get_string("newsitemsnumber") . ":");
         $output .= $this->output->render($select);
 
