@@ -21,8 +21,8 @@
  */
 
 $plugin->component = "block_sitenews";
-$plugin->requires  = 2014051200;
-$plugin->version   = 2019052701;
+$plugin->requires  = 2019111800;
+$plugin->version   = 2020011000;
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = "1.03";
+$plugin->release   = "1.1";
 
