@@ -21,6 +21,7 @@
  */
 
 require_once(__DIR__ . "/locallib.php");
+require_once($CFG->dirroot . '/mod/forum/lib.php');
 
 class block_sitenews extends block_base {
 
