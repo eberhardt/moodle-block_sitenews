@@ -57,6 +57,10 @@ class block_sitenews extends block_base {
     public function get_content() {
         global $SITE;
 
+        if ($this->content !== null) {
+            return $this->content;
+        }
+
         if (! $newsforum = forum_get_course_forum($SITE->id, "news")) {
             print_error("cannotfindorcreateforum", "forum");
         }
